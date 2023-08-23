@@ -1,0 +1,9 @@
+[Unit]
+Description=Quote of the Day
+
+[Service]
+ExecStart=/home/t/.config/quoteOfTheDay/quote.sh 
+
+[Install]
+WantedBy=default.target
+

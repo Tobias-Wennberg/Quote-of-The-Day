@@ -1,0 +1,10 @@
+[Unit]
+Description=Run My Script Every Hour
+
+[Timer]
+OnBootSec=1h
+OnUnitActiveSec=1h
+
+[Install]
+WantedBy=timers.target
+
