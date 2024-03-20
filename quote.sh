@@ -10,7 +10,7 @@ fi
 
 
 if [[ $(($(echo $RANDOM) % 2)) == "1" ]]; then
-	quote_path="/$HOME/.config/quoteOfTheDay/quotes.txt"
+	quote_path="/$HOME/.config/quoteOfTheDay/quotes_mao.txt"
 	name="Mao Zedong"
 else
     quote_path="/$HOME/.config/quoteOfTheDay/quotes_unabomber.txt"
