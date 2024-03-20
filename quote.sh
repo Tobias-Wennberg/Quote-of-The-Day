@@ -7,20 +7,13 @@ if [[ $sleep_status != *"sleep"* ]]; then
   exit
 fi
 lists=$(find quotelist/ -maxdepth 1 -type f -print0 | tr '\0' '\n' | awk -F '/' '{print $NF}')
-list_len=$(($(echo $lists | wc -l)+1))
+list_len=$(ls -1 "quotelist/" | wc -l)
 
 list_num=$((($(echo $RANDOM) % $list_len)+1))
 list_file_name=$(echo "$lists" | awk "NR==$list_num")
 quote_path="/$HOME/.config/quoteOfTheDay/quotelist/$list_file_name"
 name=$list_file_name
 
-if [[ $(($(echo $RANDOM) % 2)) == "1" ]]; then
-	quote_path="/$HOME/.config/quoteOfTheDay/quotes_mao.txt"
-	name="Mao Zedong"
-else
-    quote_path="/$HOME/.config/quoteOfTheDay/quotes_unabomber.txt"
-	name="Theodore John Kaczynski"
-fi
 declare -a quotes
 while IFS= read -r line; do
 	quotes+=("$line")
