@@ -8,10 +8,6 @@ if [[ $sleep_status != *"sleep"* ]]; then
 fi
 lists=$(find quotelist/ -maxdepth 1 -type f -print0 | tr '\0' '\n' | awk -F '/' '{print $NF}')
 list_len=$(($(echo $lists | wc -l)+1))
-echo lists:
-echo $lists
-echo len
-echo $list_len
 
 list_num=$((($(echo $RANDOM) % $list_len)+1))
 list_file_name=$(echo "$lists" | awk "NR==$list_num")
