@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 sleep_status=$(systemd-inhibit --list)
 
