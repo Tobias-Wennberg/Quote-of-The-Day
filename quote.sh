@@ -18,9 +18,6 @@ list_file_name=$(echo "$lists" | awk "NR==$list_num")
 quote_path="/$HOME/.config/quoteOfTheDay/quotelist/$list_file_name"
 name=$list_file_name
 
-
-<<<<<<< HEAD
-=======
 if [[ $(($(echo $RANDOM) % 2)) == "1" ]]; then
 	quote_path="/$HOME/.config/quoteOfTheDay/quotes_mao.txt"
 	name="Mao Zedong"
@@ -28,8 +25,6 @@ else
     quote_path="/$HOME/.config/quoteOfTheDay/quotes_unabomber.txt"
 	name="Theodore John Kaczynski"
 fi
-
->>>>>>> b3144ff6ac0465f9fbdd844d64786151a43cf1c5
 declare -a quotes
 while IFS= read -r line; do
 	quotes+=("$line")
