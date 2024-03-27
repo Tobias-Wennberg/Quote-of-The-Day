@@ -1,13 +1,14 @@
 #!/bin/bash
 
 sleep_status=$(systemd-inhibit --list)
+root_dir="/$HOME/.config/quoteOfTheDay/"
 
 if [[ $sleep_status != *"sleep"* ]]; then
   echo "The computer is in sleep mode. Exiting the script."
   exit
 fi
-lists=$(find quotelist/ -maxdepth 1 -type f -print0 | tr '\0' '\n' | awk -F '/' '{print $NF}')
-list_len=$(ls -1 "quotelist/" | wc -l)
+lists=$(find "$root_dir/quotelist/" -maxdepth 1 -type f -print0 | tr '\0' '\n' | awk -F '/' '{print $NF}')
+list_len=$(ls -1 "$root_dir/quotelist/" | wc -l)
 
 list_num=$((($(echo $RANDOM) % $list_len)+1))
 list_file_name=$(echo "$lists" | awk "NR==$list_num")
